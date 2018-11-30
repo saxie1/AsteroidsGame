@@ -31,7 +31,7 @@ public void draw()
    rob.get(i).show();
    rob.get(i).move();
    float d = dist(bob.getX(),bob.getY(),rob.get(i).getX(),rob.get(i).getY());
-   if(d<3)
+   if(d<5)
      rob.remove(i);
  }
 }
