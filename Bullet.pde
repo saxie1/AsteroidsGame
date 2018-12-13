@@ -1,5 +1,5 @@
-class Spaceship extends Floater  
-{   
+class Bullet extends Floater
+{
   public void setX(int x) {myCenterX=x;}  
   public int getX() {return (int)myCenterX;}   
   public void setY(int y) {myCenterY=y;}   
@@ -10,13 +10,20 @@ class Spaceship extends Floater
   public double getDirectionY() {return myDirectionY;}   
   public void setPointDirection(int degrees) {myPointDirection=degrees;}   
   public double getPointDirection() {return myPointDirection;}
-  public Spaceship()
+	double dRadians;
+	public Bullet()
+	{
+		myCenterX=bob.getX();
+		myCenterY=bob.getY();
+		myPointDirection=bob.getPointDirection();
+		dRadians=myPointDirection*(Math.PI/180);
+		myDirectionX=5*Math.cos(dRadians)+bob.getDirectionX();
+		myDirectionY=5*Math.sin(dRadians)+bob.getDirectionY();
+	}
+  public void show()
   {
-  	corners=4;
-  	int[] xS={-8,-5,-8,16};
-  	int[] yS={-8,0,8,0};
-  	xCorners=xS;
-  	yCorners=yS;
-    myColor=255;
-  } 
+    fill(255,0,0);
+    ellipse((float)myCenterX,(float)myCenterY,6,6);
+    super.show();
+  }
 }
